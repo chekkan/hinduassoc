@@ -24,7 +24,11 @@ app.configure(function() {
     app.use(express.static(__dirname + '/public'));
 });
 
-mongoose.connect('mongodb://localhost/hinduassoc');
+if(env === 'development') {
+    mongoose.connect('mongodb://localhost/hinduassoc');
+} else {
+    mongoose.connect('mongodb://chekkan:chekkan@ds027799.mongolab.com:27799/hinduassoc');
+}
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error...'));
 db.once('open', function callback() {
@@ -45,7 +49,7 @@ app.get('*', function(req, res) {
     res.render('index', {
         mongoMessage: mongoMessage
     });
-})
+});
 
 var port = process.env.PORT || 3030;
 app.listen(port);
