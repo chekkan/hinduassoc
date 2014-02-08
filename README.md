@@ -17,3 +17,6 @@ install node js
 install mongodb
 install git
 git clone https://github.com/chekkan/hinduassoc
+
+watch this video
+http://pluralsight.com/training/Courses/TableOfContents/building-angularjs-nodejs-apps-mean
