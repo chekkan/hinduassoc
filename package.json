@@ -18,6 +18,7 @@
   "homepage": "https://github.com/chekkan/hinduassoc",
   "dependencies": {
     "jade": "~1.1.5",
-    "express": "~3.4.8"
+    "express": "~3.4.8",
+    "stylus": "~0.42.2"
   }
 }
