@@ -1,0 +1,13 @@
+{
+  "name": "HinduAssoc",
+  "version": "0.0.0",
+  "homepage": "https://github.com/chekkan/hinduassoc",
+  "authors": [
+    "Chekkan <harish_babu@outlook.com>",
+    "Arathy Krish",
+    "Abin Jose"
+  ],
+  "description": "event tracking system for hindu association, Bolton",
+  "license": "MIT",
+  "private": true
+}
