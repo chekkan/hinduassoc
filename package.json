@@ -1,0 +1,23 @@
+{
+  "name": "HinduAssoc",
+  "version": "0.0.0",
+  "description": "event tracking system for hindu association, Bolton",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chekkan/hinduassoc.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chekkan/hinduassoc/issues"
+  },
+  "homepage": "https://github.com/chekkan/hinduassoc",
+  "dependencies": {
+    "jade": "~1.1.5",
+    "express": "~3.4.8"
+  }
+}
