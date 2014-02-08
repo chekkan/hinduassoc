@@ -9,5 +9,13 @@
   ],
   "description": "event tracking system for hindu association, Bolton",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "toastr": "~2.0.1",
+    "angular": "~1.2.12",
+    "angular-resource": "~1.2.12",
+    "angular-route": "~1.2.12",
+    "bootstrap": "~3.1.0"
+  }
 }
