@@ -1,8 +1,8 @@
-angular.module('app').factory('auth', function($http, identity, $q) {
+angular.module('app').factory('auth', function ($http, identity, $q) {
     return {
-        authenticateUser: function(username, password) {
+        authenticateUser: function (username, password) {
             var dfd = $q.defer();
-            $http.post('/login', {username: username, password: password}).then(function(response) {
+            $http.post('/login', {username: username, password: password}).then(function (response) {
                 if (response.data.success) {
                     identity.currentUser = response.data.user;
                     dfd.resolve(true);
@@ -11,6 +11,14 @@ angular.module('app').factory('auth', function($http, identity, $q) {
                 }
             });
             return dfd.promise;
+        },
+        logoutUser: function () {
+            var dfd = $q.defer();
+            $http.post('/logout', {logout: true}).then(function () {
+                identity.currentUser = undefined;
+                dfd.resolve();
+            });
+            return dfd.promise;
         }
     }
-})
+});
