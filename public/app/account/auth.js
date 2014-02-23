@@ -21,6 +21,13 @@ angular.module('app').factory('auth', function ($http, identity, $q, haUser) {
                 dfd.resolve();
             });
             return dfd.promise;
+        },
+        authorizeCurrentUserForRoute: function(role) {
+            if (identity.isAuthorized(role)) {
+                return true;
+            } else {
+                return $q.reject('not authorized');
+            }
         }
     }
 });
