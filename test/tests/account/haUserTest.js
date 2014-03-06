@@ -7,5 +7,11 @@ describe('haUser', function() {
             user.roles = ['not admin'];
             expect(user.isAdmin()).to.be.falsey;
         }));
+
+        it('should return true if the roles array has an admin entry', inject(function(haUser) {
+            var user = new haUser();
+            user.roles = ['admin'];
+            expect(user.isAdmin()).to.be.true;
+        }));
     });
 });
