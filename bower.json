@@ -4,7 +4,7 @@
   "homepage": "https://github.com/chekkan/hinduassoc",
   "authors": [
     "Chekkan <harish_babu@outlook.com>",
-    "Arathy Krish",
+    "Arathy Krishna",
     "Abin Jose"
   ],
   "description": "event tracking system for hindu association, Bolton",
@@ -15,7 +15,7 @@
     "toastr": "~2.0.1",
     "angular": "~1.2.12",
     "angular-resource": "~1.2.12",
-    "angular-route": "~1.2.12",
+    "angular-route": "~1.2.14",
     "bootstrap": "~3.1.1",
     "angular-mocks": "~1.2.14"
   }

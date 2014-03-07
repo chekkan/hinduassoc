@@ -12,6 +12,9 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
         .when('/', { templateUrl: '/partials/main/main', controller: 'mainCtrl'})
         .when('/admin/users', { templateUrl: '/partials/admin/user-list',
             controller: 'userListCtrl', resolve: routeRoleChecks.admin
+        })
+        .when('/signup', { templateUrl: '/partials/account/signup',
+            controller: 'haSignupCtrl'
         });
 });
 
