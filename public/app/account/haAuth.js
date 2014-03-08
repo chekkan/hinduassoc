@@ -2,7 +2,6 @@ angular.module('app').factory('haAuth', function ($http, haIdentity, $q, haUser)
     return {
         authenticateUser: function (username, password) {
             var dfd = $q.defer();
-            console.log(username + " " + password);
             $http.post('/login', {username: username, password: password}).then(function (response) {
                 if (response.data.success) {
                     var user = new haUser();
