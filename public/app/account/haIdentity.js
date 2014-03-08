@@ -1,4 +1,4 @@
-angular.module('app').factory('identity', function($window, haUser) {
+angular.module('app').factory('haIdentity', function($window, haUser) {
     var currentUser;
     if (!!$window.bootstrappedUserObject) {
         currentUser = new haUser();

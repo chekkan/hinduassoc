@@ -1,12 +1,13 @@
-angular.module('app').factory('auth', function ($http, identity, $q, haUser) {
+angular.module('app').factory('haAuth', function ($http, haIdentity, $q, haUser) {
     return {
         authenticateUser: function (username, password) {
             var dfd = $q.defer();
+            console.log(username + " " + password);
             $http.post('/login', {username: username, password: password}).then(function (response) {
                 if (response.data.success) {
                     var user = new haUser();
                     angular.extend(user, response.data.user);
-                    identity.currentUser = user;
+                    haIdentity.currentUser = user;
                     dfd.resolve(true);
                 } else {
                     dfd.resolve(false);
@@ -20,7 +21,7 @@ angular.module('app').factory('auth', function ($http, identity, $q, haUser) {
             var dfd = $q.defer();
 
             newUser.$save().then(function() {
-                identity.currentUser = newUser;
+                haIdentity.currentUser = newUser;
                 dfd.resolve(true);
             }, function(response) {
                 dfd.reject(response.data.reason);
@@ -29,16 +30,37 @@ angular.module('app').factory('auth', function ($http, identity, $q, haUser) {
             return dfd.promise;
         },
 
+        updateCurrentUser: function(newUserData) {
+            var dfd = $q.defer();
+
+            var clone = angular.copy(haIdentity.currentUser);
+            angular.extend(clone, newUserData);
+            clone.$update().then(function() {
+                haIdentity.currentUser = clone;
+                dfd.resolve();
+            }, function(response) {
+                dfd.reject(response.data.reason);
+            });
+            return dfd.promise;
+        },
+
         logoutUser: function () {
             var dfd = $q.defer();
             $http.post('/logout', {logout: true}).then(function () {
-                identity.currentUser = undefined;
+                haIdentity.currentUser = undefined;
                 dfd.resolve();
             });
             return dfd.promise;
         },
         authorizeCurrentUserForRoute: function(role) {
-            if (identity.isAuthorized(role)) {
+            if (haIdentity.isAuthorized(role)) {
+                return true;
+            } else {
+                return $q.reject('not authorized');
+            }
+        },
+        authorizeAuthenticateUserForRoute: function() {
+            if (haIdentity.isAuthenticated()) {
                 return true;
             } else {
                 return $q.reject('not authorized');

@@ -1,6 +1,6 @@
 angular.module('app').value('toastr', toastr);
 
-angular.module('app').factory('notifier', function (toastr) {
+angular.module('app').factory('haNotifier', function (toastr) {
     return  {
         notify: function (msg) {
             toastr.success(msg);
