@@ -7,9 +7,9 @@ describe('haIdentity', function() {
             expect(haIdentity.isAuthenticated()).to.be.true;
         }));
 
-        /*it('should return true if user object is bootstrapped in the window scope', inject(function($window, haIdentity, haUser) {
+        it.skip('should return true if user object is bootstrapped in the window scope', inject(function($window, haIdentity, haUser) {
             expect(haIdentity.isAuthenticated()).to.be.true;
-        }));*/
+        }));
     });
 
     describe('isAuthorized', function() {
