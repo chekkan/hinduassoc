@@ -11,6 +11,7 @@ module.exports = function(app) {
     app.put('/api/users', users.updateUser);
 
     app.get('/api/events', events.getEvents);
+    app.get('/api/events/:id', events.getEventById);
 
     app.get('/partials/*', function(req, res) {
         res.render('../../public/app/'+ req.params);

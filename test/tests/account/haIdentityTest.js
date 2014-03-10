@@ -1,15 +1,26 @@
 describe('haIdentity', function() {
+    var mockWindow;
+
     beforeEach(module('app'));
 
+    beforeEach(inject(function($injector) {
+        mockWindow = $injector.get('$window');
+        mockWindow = {};
+    }));
+
     describe('isAuthenticated', function() {
-        it('should return true if user is logged in', inject(function(haIdentity, haUser) {
+
+        it('should return true if user is logged in', inject(function(haUser, haIdentity) {
             haIdentity.currentUser = new haUser();
             expect(haIdentity.isAuthenticated()).to.be.true;
         }));
 
-        it.skip('should return true if user object is bootstrapped in the window scope', inject(function($window, haIdentity, haUser) {
-            expect(haIdentity.isAuthenticated()).to.be.true;
+        xit('should return true if user object is bootstrapped in the window scope', inject(function($injector) {
+            mockWindow.bootstrappedUserObject = { _id : 1 };
+            var identity = $injector.get('haIdentity');
+            expect(identity.isAuthenticated()).to.be.true;
         }));
+
     });
 
     describe('isAuthorized', function() {

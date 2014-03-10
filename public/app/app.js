@@ -22,6 +22,8 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
             controller: 'haProfileCtrl', resolve: routeRoleChecks.user
         }).when('/events', { templateUrl: '/partials/events/event-list',
             controller: 'haEventListCtrl'
+        }).when('/events/:id', { templateUrl: '/partials/events/event-details',
+            controller: 'haEventDetailCtrl'
         });
 });
 

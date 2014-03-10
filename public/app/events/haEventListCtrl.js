@@ -6,4 +6,5 @@ angular.module('app').controller('haEventListCtrl', function($scope, haEvent) {
         {value: "eventDate", text: "Sort by Event Date"}];
 
     $scope.sortOrder = $scope.sortOptions[1].value;
+
 });
