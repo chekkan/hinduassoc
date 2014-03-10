@@ -11,3 +11,14 @@ exports.getEventById = function(req, res) {
         res.send(event);
     })
 };
+
+exports.createEvent = function(req, res, next) {
+    var eventData = req.body;
+    Event.create(eventData, function(err, event) {
+        if (err) {
+            res.status(400);
+            return res.send({reason: err.toString()});
+        }
+        res.send(event)
+    });
+};

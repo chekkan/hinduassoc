@@ -5,6 +5,7 @@
                 input.form-control(ng-model="searchText", placeholder="Filter")
             .form-group.margin-left-med
                 select.form-control(ng-model="sortOrder", ng-options="item.value as item.text for item in sortOptions")
+    a(href="/events/new", ng-show="isInRole('admin');").btn.btn-default New Event
     table.table.table-hover.table-striped.table-condensed
         thead
             tr

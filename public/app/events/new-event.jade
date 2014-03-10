@@ -1,0 +1,18 @@
+.container
+    h1 New Event
+    form(role="form", name="newEventForm")
+        .form-group
+            label(for="title") Title
+            input.form-control(type="text", id="title", placeholder="Title", ng-model="title", required)
+        .form-group
+            lable(for="venue") Venue
+            input.form-control(type="text", id="venue" placeholder="Venue", ng-model="venue", required)
+        .form-group
+            label(for="eventDate") Event Date
+            input.form-control(type="date", id="eventDate", ng-model="eventDate", required)
+        .form-group
+            label(for="description") Description
+            textarea.form-control(id="description", ng-model="description")
+        button.btn.btn-primary(type="submit" ng-click="createEvent()", ng-disabled="newEventForm.$invalid") Submit
+        | &nbsp;
+        a.btn.btn-default(href="/events") Cancel
