@@ -23,6 +23,10 @@ describe('haIdentity', function() {
             expect(identity.isAuthenticated()).to.be.true;
         }));
 
+        it('should return false if user object is not bootstrapped in the window scope', inject(function(haIdentity) {
+            expect(haIdentity.isAuthenticated()).to.be.falsey;
+        }));
+
     });
 
     describe('isAuthorized', function() {
