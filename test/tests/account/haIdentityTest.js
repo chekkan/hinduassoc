@@ -3,10 +3,12 @@ describe('haIdentity', function() {
 
     beforeEach(module('app'));
 
-    beforeEach(inject(function($injector) {
-        mockWindow = $injector.get('$window');
+    beforeEach(function() {
         mockWindow = {};
-    }));
+        module(function($provide) {
+            $provide.value('$window', mockWindow);
+        });
+    });
 
     describe('isAuthenticated', function() {
 
@@ -15,8 +17,8 @@ describe('haIdentity', function() {
             expect(haIdentity.isAuthenticated()).to.be.true;
         }));
 
-        xit('should return true if user object is bootstrapped in the window scope', inject(function($injector) {
-            mockWindow.bootstrappedUserObject = { _id : 1 };
+        it('should return true if user object is bootstrapped in the window scope', inject(function($injector) {
+            mockWindow.bootstrappedUserObject = { _id : 1};
             var identity = $injector.get('haIdentity');
             expect(identity.isAuthenticated()).to.be.true;
         }));
