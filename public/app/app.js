@@ -29,10 +29,10 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
         });
 });
 
-angular.module('app').run(function($rootScope, $location) {
-    $rootScope.$on('$routeChangeError', function(evt, current, previous, rejection) {
+angular.module('app').run(function ($rootScope, $location) {
+    $rootScope.$on('$routeChangeError', function (evt, current, previous, rejection) {
         if (rejection == "not authorized") {
             $location.path('/');
         }
     });
-})
+});
