@@ -1,6 +1,7 @@
 .container
-    h1 {{ event.title }}
     .row
+        h1 {{ event.title }}
+        button.btn.btn-danger(ng-if="isInRole('Admin')") Delete
         h3 Event on {{ event.eventDate | date }}
         h3 Venue at {{ event.venue }}
         h3 Description: {{ event.description }}
