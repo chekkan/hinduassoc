@@ -13,6 +13,7 @@ module.exports = function(app) {
     app.get('/api/events', events.getEvents);
     app.get('/api/events/:id', events.getEventById);
     app.post('/api/events', events.createEvent);
+    app.delete('/api/events/:id', auth.requiresRole('admin'), events.deleteEvent);
 
     app.get('/partials/*', function(req, res) {
         res.render('../../public/app/'+ req.params);
