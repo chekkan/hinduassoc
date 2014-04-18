@@ -35,4 +35,4 @@ angular.module('app').run(function($rootScope, $location) {
             $location.path('/');
         }
     });
-})
+});

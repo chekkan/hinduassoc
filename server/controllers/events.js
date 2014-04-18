@@ -22,3 +22,14 @@ exports.createEvent = function(req, res, next) {
         res.send(event)
     });
 };
+
+exports.deleteEvent = function(req, res) {
+    var eventId = {_id: req.params.id};
+    Event.remove(eventId, function(err) {
+        if (err) {
+            res.status(400);
+            return res.send({reason: err.toString()});
+        }
+        return res.send(200);
+    })
+};
