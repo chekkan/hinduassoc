@@ -14,6 +14,7 @@ module.exports = function(app) {
     app.get('/api/events/:id', events.getEventById);
     app.post('/api/events', events.createEvent);
     app.delete('/api/events/:id', auth.requiresRole('admin'), events.deleteEvent);
+    app.put('/api/events', auth.requiresRole('admin'), events.updateEvent);
 
     app.get('/partials/*', function(req, res) {
         res.render('../../public/app/'+ req.params);

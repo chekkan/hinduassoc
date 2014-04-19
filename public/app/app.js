@@ -24,6 +24,8 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
             controller: 'haEventListCtrl'
         }).when('/events/new', { templateUrl: '/partials/events/new-event',
             controller: 'haNewEventCtrl', resolve: routeRoleChecks.admin
+        }).when('/events/edit/:id', { templateUrl: '/partials/events/edit-event',
+            controller: 'haEditEventCtrl', resolve: routeRoleChecks.admin
         }).when('/events/:id', { templateUrl: '/partials/events/event-details',
             controller: 'haEventDetailCtrl'
         });

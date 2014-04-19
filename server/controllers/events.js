@@ -33,3 +33,15 @@ exports.deleteEvent = function(req, res) {
         return res.send(200);
     })
 };
+
+exports.updateEvent = function(req, res) {
+    var eventUpdates = req.body;
+
+    Event.update(eventUpdates, function(err) {
+        if (err) {
+            res.status(400);
+            return res.send({reason: err.toString()});
+        }
+        return res.send(req.body);
+    });
+};
