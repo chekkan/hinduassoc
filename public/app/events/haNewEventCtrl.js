@@ -8,9 +8,9 @@ angular.module('app').controller('haNewEventCtrl', function($scope, haEventData,
             description: $scope.description
         };
 
-        haEventData.createEvent(newEventData).then(function() {
+        haEventData.createEvent(newEventData).then(function(newEventId) {
             haNotifier.notify('New Event created!');
-            $location.path('/events');
+            $location.path('/events/'+newEventId);
         }, function(reason) {
             haNotifier.error(reason);
         });

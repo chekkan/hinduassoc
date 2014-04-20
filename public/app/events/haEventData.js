@@ -7,7 +7,7 @@ angular.module('app').factory('haEventData', function(haEvent, $q) {
             var dfd = $q.defer();
 
             newEvent.$save().then(function() {
-                dfd.resolve(true);
+                dfd.resolve(newEvent._id);
             }, function(response) {
                 dfd.reject(response.data.reason);
             });
