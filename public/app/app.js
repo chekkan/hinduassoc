@@ -20,6 +20,8 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
             controller: 'haSignupCtrl'
         }).when('/profile', { templateUrl: '/partials/account/profile',
             controller: 'haProfileCtrl', resolve: routeRoleChecks.user
+        }).when('/profile/:id', { templateUrl: '/partials/account/profile',
+            controller: 'haProfileCtrl', resolve: routeRoleChecks.user
         }).when('/events', { templateUrl: '/partials/events/event-list',
             controller: 'haEventListCtrl'
         }).when('/events/new', { templateUrl: '/partials/events/new-event',
