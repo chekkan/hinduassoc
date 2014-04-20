@@ -1,7 +1,7 @@
 .container
     .row
         h1 {{ event.title }}
-        button(ng-click="delete()", ng-if="isInRole('admin')").btn.btn-danger Delete
+        button(ng-click="deleteEvent()", ng-if="isInRole('admin')").btn.btn-danger Delete
         span &nbsp;
         a(href="edit/{{event._id}}", ng-if="isInRole('admin')").btn.btn-warning Edit
         h3 Event on {{ event.eventDate | date }}

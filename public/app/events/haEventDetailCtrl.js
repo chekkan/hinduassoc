@@ -1,15 +1,16 @@
-angular.module('app').controller('haEventDetailCtrl', function ($scope, haEvent, $routeParams, haIdentity, $window) {
+angular.module('app').controller('haEventDetailCtrl', function ($scope, haEvent, $routeParams, haIdentity, haNotifier, $location) {
     $scope.event = haEvent.get({_id:$routeParams.id});
 
     $scope.isInRole = function(role) {
         return haIdentity.isAuthorized(role);
     };
 
-    $scope.delete = function() {
+    $scope.deleteEvent = function() {
         haEvent.delete({_id: $routeParams.id}, function() {
-            $window.location.href = '/events/';
+            haNotifier.notify('Event is deleted');
+            $location.path('/events/');
         }, function(error) {
-            console.log(error);
+            haNotifier.notify(error);
         });
     };
 

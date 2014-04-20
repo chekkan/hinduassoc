@@ -28,14 +28,14 @@ describe('haEventDetailCtrl', function() {
 
     });
 
-    describe('delete', function() {
+    describe('deleteEvent', function() {
 
         it('should invoke delete method on the resource', inject(function($rootScope, $controller) {
             var eventSpy = {get: function() {}, delete: function() {} };
             sinon.spy(eventSpy, "delete");
             var scope = $rootScope.$new();
             $controller('haEventDetailCtrl', {$scope: scope, haEvent: eventSpy, $routeParams: params});
-            scope.delete();
+            scope.deleteEvent();
             expect(eventSpy.delete).to.have.been.called;
         }));
 
@@ -44,7 +44,7 @@ describe('haEventDetailCtrl', function() {
             sinon.spy(eventSpy, "delete");
             var scope = $rootScope.$new();
             $controller('haEventDetailCtrl', {$scope: scope, haEvent: eventSpy, $routeParams: params});
-            scope.delete();
+            scope.deleteEvent();
             expect(eventSpy.delete).to.have.been.calledWith({_id:params.id});
         }));
 
@@ -54,7 +54,7 @@ describe('haEventDetailCtrl', function() {
             var scope = $rootScope.$new();
             params = { id: 1 };
             $controller('haEventDetailCtrl', {$scope: scope, haEvent: eventSpy, $routeParams: params});
-            scope.delete();
+            scope.deleteEvent();
             expect(eventSpy.delete).to.have.been.calledWith({_id:params.id});
         }));
 
