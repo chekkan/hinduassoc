@@ -36,12 +36,14 @@ exports.deleteEvent = function(req, res) {
 
 exports.updateEvent = function(req, res) {
     var eventUpdates = req.body;
-
-    Event.update(eventUpdates, function(err) {
+    var eventId = eventUpdates._id;
+    delete eventUpdates._id;
+    Event.update({_id: eventId}, eventUpdates, function(err) {
         if (err) {
             res.status(400);
             return res.send({reason: err.toString()});
         }
-        return res.send(req.body);
+        eventUpdates._id = eventId;
+        return res.send(eventUpdates);
     });
 };

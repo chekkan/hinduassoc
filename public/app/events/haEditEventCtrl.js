@@ -1,4 +1,4 @@
-angular.module('app').controller('haEditEventCtrl', function(haEvent, $routeParams, $scope, $filter, haNotifier) {
+angular.module('app').controller('haEditEventCtrl', function(haEvent, $routeParams, $scope, $filter, haNotifier, $location) {
 
     $scope.event = haEvent.get({_id: $routeParams.id});
 
@@ -9,8 +9,9 @@ angular.module('app').controller('haEditEventCtrl', function(haEvent, $routePara
     $scope.editEvent = function() {
         $scope.event.$update().then(function() {
             haNotifier.notify('Updated');
+            $location.path("/events/"+$scope.event._id);
         }, function(response) {
-            haNotifier.error(response);
+            haNotifier.error(response.reason);
         });
     }
 
