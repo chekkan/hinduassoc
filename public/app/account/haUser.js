@@ -1,6 +1,7 @@
 angular.module("app").factory('haUser', function($resource) {
     var UserResource = $resource('/api/users/:_id', {_id: "@id"}, {
-        update: {method: 'PUT', isArray: false}
+        update: {method: 'PUT', isArray: false},
+        delete: {method: 'DELETE'}
     });
 
     UserResource.prototype.isAdmin = function() {

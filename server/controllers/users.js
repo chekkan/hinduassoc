@@ -74,3 +74,31 @@ exports.updateUser = function(req, res) {
         });
     }
 };
+
+exports.deleteUser = function(req, res) {
+    // check that the user is an admin
+    if (req.user.hasRole('admin')) {
+        // don't want to let user delete themselves
+        var deleteUserId = req.params.id;
+        console.log(deleteUserId);
+        if (deleteUserId !== req.user._id) {
+            User.findById(deleteUserId, function(err, user) {
+                if(err) {
+                    res.status(400);
+                    return res.send({reason: err.toString()});
+                }
+                user.remove(function(err) {
+                    if (err) {
+                        res.status(400);
+                        return res.send({reason:err.toString()});
+                    }
+                    return res.send(200);
+                });
+            })
+        } else {
+            return res.send(405);
+        }
+    } else {
+        return res.send(404);
+    }
+};

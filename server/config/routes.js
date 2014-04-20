@@ -10,6 +10,7 @@ module.exports = function(app) {
     app.get('/api/users/:id', auth.requiresRole('admin'), users.getUserById);
     app.post('/api/users', auth.requiresRole('admin'), users.createUser);
     app.put('/api/users', users.updateUser);
+    app.delete('/api/users/:id', auth.requiresRole('admin'), users.deleteUser);
 
     app.get('/api/events', events.getEvents);
     app.get('/api/events/:id', events.getEventById);
