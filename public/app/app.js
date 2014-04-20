@@ -16,8 +16,8 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
         .when('/admin/users', { templateUrl: '/partials/admin/user-list',
             controller: 'haUserListCtrl', resolve: routeRoleChecks.admin
         })
-        .when('/signup', { templateUrl: '/partials/account/signup',
-            controller: 'haSignupCtrl'
+        .when('/users/new', { templateUrl: '/partials/account/create-user',
+            controller: 'haCreateUserCtrl', resolve: routeRoleChecks.admin
         }).when('/profile', { templateUrl: '/partials/account/profile',
             controller: 'haProfileCtrl', resolve: routeRoleChecks.user
         }).when('/profile/:id', { templateUrl: '/partials/account/profile',
