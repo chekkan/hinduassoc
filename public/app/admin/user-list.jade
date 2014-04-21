@@ -1,5 +1,7 @@
 .container
+    .page-header
+        h1 Users
     a.btn.btn-default(href="/users/new") New User
-    div(ng-repeat="user in users")
-        div
-            a(href="/profile/{{user._id}}") {{user.firstName + " " + user.lastName}}
+    ul.list-group
+    li.list-group-item(ng-repeat="user in users")
+        a(href="/profile/{{user._id}}") {{user.firstName + " " + user.lastName}}
