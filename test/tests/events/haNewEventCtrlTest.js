@@ -14,7 +14,7 @@ describe('haNewEventCtrl', function () {
         xit('should call haEventData service passing in new event details', inject(function ($rootScope, $controller) {
             $scope = $rootScope.$new;
             $scope.title = "foo";
-            $scope.venue = "bar"
+            $scope.venue = "bar";
             $scope.eventDate = new Date();
             $scope.description = "baz";
 
