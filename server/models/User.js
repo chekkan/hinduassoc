@@ -37,7 +37,7 @@ function createDefaultUsers() {
             User.create({firstName: 'Arathy', lastName: 'Krishna', username: 'athy', salt: salt, hashed_pwd: hash, roles: []});
             salt = encrypt.createSalt();
             hash = encrypt.hashPwd(salt, 'abin');
-            User.create({firstName: 'Abin', lastName: 'Jose', username: 'abin', salt: salt, hashed_pwd: hash });
+            User.create({firstName: 'Abin', lastName: 'Jose', username: 'abin', salt: salt, hashed_pwd: hash, roles: ["admin"]});
         }
     });
 };

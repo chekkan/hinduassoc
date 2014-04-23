@@ -1,6 +1,9 @@
 .container
-    h1 {{ event.title }}
     .row
+        h1 {{ event.title }}
+        button(ng-click="deleteEvent()", ng-if="isInRole('admin')").btn.btn-danger Delete
+        span(ng-if="isInRole('admin')") &nbsp;
+        a(href="edit/{{event._id}}", ng-if="isInRole('admin')").btn.btn-warning Edit
         h3 Event on {{ event.eventDate | date }}
         h3 Venue at {{ event.venue }}
         h3 Description: {{ event.description }}

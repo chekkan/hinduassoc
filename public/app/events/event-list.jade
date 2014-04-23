@@ -1,4 +1,6 @@
-.container.top-padding-med
+.container
+    .page-header
+        h1 Events
     .pull-right
         form.form-inline
             .form-group
@@ -12,7 +14,7 @@
                 th Title
                 th Event Date
         tbody
-            tr(ng-repeat="event in events | filter: searchText | orderBy: sortOrder")
+            tr(ng-repeat="event in events | filter: searchText | orderBy: sortOrder: isSortReverse")
                 td
                     a(href="/events/{{event._id}}") {{ event.title }}
                 td {{ event.eventDate | date }}

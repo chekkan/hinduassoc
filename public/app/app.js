@@ -16,14 +16,18 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
         .when('/admin/users', { templateUrl: '/partials/admin/user-list',
             controller: 'haUserListCtrl', resolve: routeRoleChecks.admin
         })
-        .when('/signup', { templateUrl: '/partials/account/signup',
-            controller: 'haSignupCtrl'
+        .when('/users/new', { templateUrl: '/partials/account/create-user',
+            controller: 'haCreateUserCtrl', resolve: routeRoleChecks.admin
         }).when('/profile', { templateUrl: '/partials/account/profile',
+            controller: 'haProfileCtrl', resolve: routeRoleChecks.user
+        }).when('/profile/:id', { templateUrl: '/partials/account/profile',
             controller: 'haProfileCtrl', resolve: routeRoleChecks.user
         }).when('/events', { templateUrl: '/partials/events/event-list',
             controller: 'haEventListCtrl'
         }).when('/events/new', { templateUrl: '/partials/events/new-event',
             controller: 'haNewEventCtrl', resolve: routeRoleChecks.admin
+        }).when('/events/edit/:id', { templateUrl: '/partials/events/edit-event',
+            controller: 'haEditEventCtrl', resolve: routeRoleChecks.admin
         }).when('/events/:id', { templateUrl: '/partials/events/event-details',
             controller: 'haEventDetailCtrl'
         });

@@ -20,8 +20,7 @@ angular.module('app').factory('haAuth', function ($http, haIdentity, $q, haUser)
             var dfd = $q.defer();
 
             newUser.$save().then(function() {
-                haIdentity.currentUser = newUser;
-                dfd.resolve(true);
+                dfd.resolve(newUser._id);
             }, function(response) {
                 dfd.reject(response.data.reason);
             });

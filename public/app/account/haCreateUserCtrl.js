@@ -1,4 +1,4 @@
-angular.module('app').controller('haSignupCtrl', function($scope, haUser, haNotifier, $location, haAuth) {
+angular.module('app').controller('haCreateUserCtrl', function($scope, haUser, haNotifier, $location, haAuth) {
     $scope.signup = function() {
         var newUserData = {
             username: $scope.email,
@@ -7,9 +7,9 @@ angular.module('app').controller('haSignupCtrl', function($scope, haUser, haNoti
             lastName: $scope.lname
         };
 
-        haAuth.createUser(newUserData).then(function() {
+        haAuth.createUser(newUserData).then(function(userId) {
             haNotifier.notify('User account created!');
-            $location.path('/');
+            $location.path('/profile/'+userId);
         }, function(reason) {
             haNotifier.error(reason);
         });
