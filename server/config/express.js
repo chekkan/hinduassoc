@@ -11,7 +11,7 @@ module.exports = function(app, config) {
   }
 
   app.set("views", rootPath + "/server/views");
-  app.set("view engine", "jade");
+  app.set("view engine", "pug");
   app.use(require("morgan")("dev"));
   app.use(require("cookie-parser")());
   app.use(require("body-parser").urlencoded({ extended: false }));
