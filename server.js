@@ -1,18 +1,17 @@
-var express = require('express');
-
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var express = require("express");
+var config = require("config");
 
 var app = express();
 
-var config = require("./server/config/config.js")[env];
+var configObj = config.util.toObject();
 
-require("./server/config/express")(app, config);
+require("./server/config/express")(app, configObj);
 
-require("./server/config/mongoose")(config);
+require("./server/config/mongoose")(configObj);
 
 require("./server/config/passport")();
 
 require("./server/config/routes")(app);
 
-app.listen(config.port);
-console.log("Listening on port " + config.port + "...");
+app.listen(config.get("port"));
+console.log("Listening on port " + config.get("port") + "...");
