@@ -1,4 +1,4 @@
 {
-  "db": "mongodb://chekkan:adsdas982j@ds131784.mlab.com:31784/hindu-assoc",
-  "port": 80
+  "db": "mongodb://localhost/hindu-assoc",
+  "port": 3030
 }
