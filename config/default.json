@@ -1,4 +1,4 @@
 {
   "db": "mongodb://localhost/hindu-assoc",
-  "port": 3030
+  "port": 80
 }
